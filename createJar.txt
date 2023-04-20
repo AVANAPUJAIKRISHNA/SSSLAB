@@ -1,0 +1,1 @@
+jar cvf FOLDER_NAME.war .
