@@ -1,0 +1,69 @@
+<html>
+<head>
+	<script>
+		function valid()
+		{
+			var UserName=document.f.UserName.value;
+			var password=document.f.password.value;
+			var cp=document.f.cpwd.value;
+			var number=document.f.number.value;
+			
+			var letters=/^[A-Za-z]+$/;
+			var passwd=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,25}$/;
+			
+			if(UserName.length<6 || UserName.length>25)
+			{
+				alert("UserName must have min.Length of 5 and max.Length of 25");
+			}
+			else if(!UserName.match(letters))
+			{
+				alert("UserName must have only Alphabets");
+			}
+			else if(!password.match(passwd))
+			{
+				alert("password between 8 to 25 characters which contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character");
+			}
+			else if(!(password===cp))
+			{
+				alert("PassWord does not match");
+			}
+			else if(number.length!=10)
+			{
+				alert("Enter Valid Number");
+			}
+		}
+	</script>
+</head>
+<body style="background-color:powderblue;">
+	<table border="2px" align="center">
+		<form name="f" onsubmit="return valid()"  action="connect.php" method="post">
+			<tr>
+				<td>UserName :</td>
+				<td><input type="text" name="UserName"></td>
+			</tr>
+			<tr>
+				<td>password :</td>
+				<td><input type="password" name="password"></td>
+			</tr>
+			<tr>
+				<td>Confirm Password :</td>
+				<td><input type="password" name="cpwd"></td>
+			</tr>
+			<tr>
+				<td>email :</td>
+				<td><input type="email" name="email"></td>
+			</tr>
+			<tr>
+				<td>number :</td>
+				<td><input type="number" name="number"></td>
+			</tr>
+			<tr>
+				<td><input type="reset" value="Clear Form"></td>
+				<td><input type="submit" value="Validate"></td>
+			</tr>
+		</form>
+	</table>
+</body>
+</html>
+
+	
