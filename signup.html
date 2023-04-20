@@ -1,0 +1,69 @@
+<html>
+<head>
+	<script>
+		function valid()
+		{
+			var n=document.f.name.value;
+			var p=document.f.pwd.value;
+			var cp=document.f.cpwd.value;
+			var pno=document.f.pno.value;
+			
+			var letters=/^[A-Za-z]+$/;
+			var passwd=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,25}$/;
+			
+			if(n.length<6 || n.length>25)
+			{
+				alert("UserName must have min.Length of 5 and max.Length of 25");
+			}
+			else if(!n.match(letters))
+			{
+				alert("UserName must have only Alphabets");
+			}
+			else if(!p.match(passwd))
+			{
+				alert("password between 8 to 25 characters which contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character");
+			}
+			else if(!(p===cp))
+			{
+				alert("PassWords doesnot match");
+			}
+			else if(pno.length!=10)
+			{
+				alert("Enter Valid Mobile Number");
+			}
+		}
+	</script>
+</head>
+<body style="background-color:powderblue;">
+	<table border="2px" align="center">
+		<form name="f"  onsubmit="return valid()">
+			<tr>
+				<td>UserName :</td>
+				<td><input type="text" id="name"></td>
+			</tr>
+			<tr>
+				<td>Password :</td>
+				<td><input type="password" id="pwd"></td>
+			</tr>
+			<tr>
+				<td>Confirm Password :</td>
+				<td><input type="password" id="cpwd"></td>
+			</tr>
+			<tr>
+				<td>E-Mail :</td>
+				<td><input type="email" id="mail"></td>
+			</tr>
+			<tr>
+				<td>Mobile Number :</td>
+				<td><input type="number" id="pno"></td>
+			</tr>
+			<tr>
+				<td><input type="reset" value="Clear Form"></td>
+				<td><input type="submit" value="Validate"></td>
+			</tr>
+		</form>
+	</table>
+</body>
+</html>
+
+	
